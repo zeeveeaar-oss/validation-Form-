@@ -1,41 +1,26 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
+</head>
+<body>
+    <p>Enter a number and click the ok button:</p>
+    
+    <input id="id" type="number" min="1" max="9999999999" required>
+
+    <button onclick="myFunction()">OK</button>
+
+    <p id="result"></p>
 
     <script>
+function myFunction() {
+    var inpobj = document.getElementById("id");
 
-        function validateForm() {
-
-            var x = document.forms["myForm"]["fname"].value;
-
-            if (x == "") {
-
-                alert("Name must be filled out");
-
-                return false;
-
-            }
-
-        }
-
+    if (!inpobj.checkValidity()) {
+        document.getElementById("result").innerHTML = inpobj.validationMessage;
+    } else {
+        document.getElementById("result").innerHTML = "Input OK";
+    }
+}
     </script>
-
-</head>
-
-<body>
-
-    <form name="myForm" onsubmit="return validateForm()">
-
-        Name: <input type="text" name="fname">
-
-        <input type="submit" value="Submit">
-
-    </form>
-
-    <p id="message"></p>
-
 </body>
-
 </html>
